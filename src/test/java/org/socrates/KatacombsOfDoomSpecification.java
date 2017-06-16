@@ -25,7 +25,10 @@ public class KatacombsOfDoomSpecification {
         Player player = new Player();
         MoveNorthCommand moveNorthCommand = new MoveNorthCommand(player);
         Commands commands = new Commands(lookCommand, moveNorthCommand);
-        katacombsOfDoom = new KatacombsOfDoom(console, commands);
+
+        Room initialRoom = new Room("Initial room");
+
+        katacombsOfDoom = new KatacombsOfDoom(initialRoom, commands, console);
     }
 
     @Test
@@ -58,4 +61,5 @@ public class KatacombsOfDoomSpecification {
         inOrder.verify(console).write("There is an exit to the north");
         inOrder.verify(console).write("See you in hell.");
     }
+    
 }

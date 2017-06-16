@@ -13,21 +13,23 @@ import static org.mockito.Mockito.verify;
 public class KatacombsOfDoomShould {
 
     @Mock Console console;
-    @Mock
-    Commands commands;
+    @Mock Commands commands;
+
     private KatacombsOfDoom katacombsOfDoom;
+    private Room room;
 
     @Before
     public void initialise() {
         given(console.read()).willReturn("Suicide");
-        katacombsOfDoom = new KatacombsOfDoom(console, commands);
+        room = new Room("Library");
+        katacombsOfDoom = new KatacombsOfDoom(room, commands, console);
     }
 
     @Test public void
-    prompt_player_that_he_is_in_a_room() {
+    prompt_player_that_he_is_in_a_room_with_a_given_name() {
         katacombsOfDoom.start();
 
-        verify(console).write("You are in a room.");
+        verify(console).write("You are in " + room.name());
     }
 
     @Test public void

@@ -2,16 +2,18 @@ package org.socrates;
 
 class KatacombsOfDoom {
 
+    private final Room room;
     private Console console;
     private Commands commands;
 
-    KatacombsOfDoom(Console console, Commands commands) {
-        this.console = console;
+    KatacombsOfDoom(Room room, Commands commands, Console console) {
+        this.room = room;
         this.commands = commands;
+        this.console = console;
     }
 
     void start() {
-        console.write("You are in a room.");
+        console.write("You are in " + room.name());
         String command = "";
         while (!"Suicide".equals(command = console.read())) {
             commands.execute(command);
