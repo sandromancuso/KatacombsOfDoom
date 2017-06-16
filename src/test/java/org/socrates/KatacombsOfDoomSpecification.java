@@ -21,7 +21,8 @@ public class KatacombsOfDoomSpecification {
     @Before
     public void initialise() {
         given(console.read()).willReturn("Suicide");
-        CommandExecutor commandExecutor = new CommandExecutor(console);
+        LookCommand lookCommand = new LookCommand(console);
+        CommandExecutor commandExecutor = new CommandExecutor(lookCommand);
         katacombsOfDoom = new KatacombsOfDoom(console, commandExecutor);
     }
 

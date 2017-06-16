@@ -2,15 +2,19 @@ package org.socrates;
 
 class CommandExecutor {
 
-    private Console console;
+    private LookCommand lookCommand;
 
-    public CommandExecutor(Console console) {
-        this.console = console;
+    public CommandExecutor(LookCommand lookCommand) {
+        this.lookCommand = lookCommand;
     }
 
     void execute(String command) {
         if ("Look".equals(command)) {
-            console.write("There is an exit to the north");
+            lookCommand.execute();
         }
+
+//        if ("Look".equals(command)) {
+//            console.write("There is an exit to the north");
+//        }
     }
 }

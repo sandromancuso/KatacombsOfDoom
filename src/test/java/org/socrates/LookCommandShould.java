@@ -9,26 +9,23 @@ import org.mockito.runners.MockitoJUnitRunner;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
-public class CommandExecutorShould {
+public class LookCommandShould {
 
     @Mock
     private Console console;
 
-    @Mock
     private LookCommand lookCommand;
-
-    private CommandExecutor commandExecutor;
 
     @Before
     public void initialise() {
-        commandExecutor = new CommandExecutor(lookCommand);
+        lookCommand = new LookCommand(console);
     }
 
     @Test public void
-    execute_the_look_command() {
-        commandExecutor.execute("Look");
+    print_there_is_an_exit_to_the_north() {
+        lookCommand.execute();
 
-        verify(lookCommand).execute();
+        verify(console).write("There is an exit to the north");
     }
 
 }
