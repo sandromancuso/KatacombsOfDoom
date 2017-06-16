@@ -18,6 +18,7 @@ class KatacombsOfDoom {
         while (!"Suicide".equals(command = console.read())) {
             commands.execute(command);
         }
-        console.write("See you in hell.");
+        commands.execute("Suicide");
+//        console.write("See you in hell.");
     }
 }

@@ -10,6 +10,5 @@ public class SuicideCommand {
 
     public void execute() {
         console.write("See you in hell.");
-        System.exit(0);
     }
 }
