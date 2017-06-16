@@ -12,9 +12,5 @@ class CommandExecutor {
         if ("Look".equals(command)) {
             lookCommand.execute();
         }
-
-//        if ("Look".equals(command)) {
-//            console.write("There is an exit to the north");
-//        }
     }
 }
