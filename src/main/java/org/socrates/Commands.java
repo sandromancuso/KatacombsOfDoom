@@ -1,10 +1,10 @@
 package org.socrates;
 
-class CommandExecutor {
+class Commands {
 
     private LookCommand lookCommand;
 
-    public CommandExecutor(LookCommand lookCommand) {
+    Commands(LookCommand lookCommand) {
         this.lookCommand = lookCommand;
     }
 

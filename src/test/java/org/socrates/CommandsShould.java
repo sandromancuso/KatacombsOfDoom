@@ -9,7 +9,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
-public class CommandExecutorShould {
+public class CommandsShould {
 
     @Mock
     private Console console;
@@ -17,16 +17,16 @@ public class CommandExecutorShould {
     @Mock
     private LookCommand lookCommand;
 
-    private CommandExecutor commandExecutor;
+    private Commands commands;
 
     @Before
     public void initialise() {
-        commandExecutor = new CommandExecutor(lookCommand);
+        commands = new Commands(lookCommand);
     }
 
     @Test public void
     execute_the_look_command() {
-        commandExecutor.execute("Look");
+        commands.execute("Look");
 
         verify(lookCommand).execute();
     }

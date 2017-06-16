@@ -13,13 +13,14 @@ import static org.mockito.Mockito.verify;
 public class KatacombsOfDoomShould {
 
     @Mock Console console;
-    @Mock CommandExecutor commandExecutor;
+    @Mock
+    Commands commands;
     private KatacombsOfDoom katacombsOfDoom;
 
     @Before
     public void initialise() {
         given(console.read()).willReturn("Suicide");
-        katacombsOfDoom = new KatacombsOfDoom(console, commandExecutor);
+        katacombsOfDoom = new KatacombsOfDoom(console, commands);
     }
 
     @Test public void
@@ -35,7 +36,7 @@ public class KatacombsOfDoomShould {
 
         katacombsOfDoom.start();
 
-        verify(commandExecutor).execute("Look");
+        verify(commands).execute("Look");
     }
 
 }
