@@ -22,7 +22,8 @@ public class KatacombsOfDoomSpecification {
     public void initialise() {
         given(console.read()).willReturn("Suicide");
         LookCommand lookCommand = new LookCommand(console);
-        MoveNorthCommand moveNorthCommand = new MoveNorthCommand();
+        Player player = new Player();
+        MoveNorthCommand moveNorthCommand = new MoveNorthCommand(player);
         Commands commands = new Commands(lookCommand, moveNorthCommand);
         katacombsOfDoom = new KatacombsOfDoom(console, commands);
     }
