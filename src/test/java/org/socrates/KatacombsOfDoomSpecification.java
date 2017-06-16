@@ -1,6 +1,7 @@
 package org.socrates;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InOrder;
@@ -21,10 +22,12 @@ public class KatacombsOfDoomSpecification {
     @Before
     public void initialise() {
         given(console.read()).willReturn("Suicide");
-        LookCommand lookCommand = new LookCommand(console);
         Player player = new Player();
+
+        LookCommand lookCommand = new LookCommand(console);
+        SuicideCommand suicideCommand = new SuicideCommand(console);
         MoveNorthCommand moveNorthCommand = new MoveNorthCommand(player);
-        Commands commands = new Commands(lookCommand, moveNorthCommand);
+        Commands commands = new Commands(lookCommand, moveNorthCommand, suicideCommand);
 
         Room initialRoom = new Room("Initial room");
 
@@ -59,6 +62,19 @@ public class KatacombsOfDoomSpecification {
         InOrder inOrder = inOrder(console);
         inOrder.verify(console).write("There is an exit to the north");
         inOrder.verify(console).write("There is an exit to the north");
+        inOrder.verify(console).write("See you in hell.");
+    }
+
+    @Ignore
+    @Test public void
+    displays_the_name_of_the_room_on_entrance() {
+        given(console.read()).willReturn("Move North", "Suicide");
+
+        katacombsOfDoom.start();
+
+        InOrder inOrder = inOrder(console);
+        inOrder.verify(console).write("You are in Initial room");
+        inOrder.verify(console).write("You are in North room");
         inOrder.verify(console).write("See you in hell.");
     }
     

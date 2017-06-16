@@ -13,12 +13,13 @@ public class CommandsShould {
 
     @Mock LookCommand lookCommand;
     @Mock MoveNorthCommand moveNorthCommand;
+    @Mock SuicideCommand suicideCommand;
 
     private Commands commands;
 
     @Before
     public void initialise() {
-        commands = new Commands(lookCommand, moveNorthCommand);
+        commands = new Commands(lookCommand, moveNorthCommand, suicideCommand);
     }
 
     @Test public void
@@ -35,4 +36,10 @@ public class CommandsShould {
         verify(moveNorthCommand).execute();
     }
 
+    @Test public void
+    execute_suicide_command() {
+        commands.execute("Suicide");
+
+        verify(suicideCommand).execute();
+    }
 }

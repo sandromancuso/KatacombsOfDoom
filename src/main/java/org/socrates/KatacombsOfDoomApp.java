@@ -7,7 +7,8 @@ public class KatacombsOfDoomApp {
         LookCommand lookCommand = new LookCommand(console);
         Player player = new Player();
         MoveNorthCommand moveNorthCommand = new MoveNorthCommand(player);
-        Commands commands = new Commands(lookCommand, moveNorthCommand);
+        SuicideCommand suicideCommand = new SuicideCommand(console);
+        Commands commands = new Commands(lookCommand, moveNorthCommand, suicideCommand);
 
         Room initialRoom = new Room("Initial room");
 

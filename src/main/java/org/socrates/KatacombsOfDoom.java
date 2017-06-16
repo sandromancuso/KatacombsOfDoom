@@ -6,8 +6,8 @@ class KatacombsOfDoom {
     private Console console;
     private Commands commands;
 
-    KatacombsOfDoom(Room room, Commands commands, Console console) {
-        this.room = room;
+    KatacombsOfDoom(Room initialRoom, Commands commands, Console console) {
+        this.room = initialRoom;
         this.commands = commands;
         this.console = console;
     }
