@@ -1,6 +1,7 @@
 package org.socrates;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InOrder;
@@ -64,6 +65,7 @@ public class KatacombsOfDoomSpecification {
         inOrder.verify(console).write("See you in hell.");
     }
 
+    @Ignore
     @Test public void
     displays_the_name_of_the_room_on_entrance() {
         given(console.read()).willReturn("Move North", "Suicide");

@@ -9,6 +9,9 @@ class Player {
     }
 
     void moveNorth() {
+        if (currentRoom.north().isPresent()) {
+            currentRoom = currentRoom.north().get();
+        }
     }
 
     Room currentRoom() {
