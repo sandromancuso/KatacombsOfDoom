@@ -1,13 +1,15 @@
 package org.socrates;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.util.Optional;
+
+import static java.util.Optional.empty;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.verify;
@@ -22,7 +24,8 @@ public class KatacombsOfDoomSpecification {
     @Before
     public void initialise() {
         given(console.read()).willReturn("Suicide");
-        Room initialRoom = new Room("Initial room");
+        Room northRoom = new Room("North room", empty());
+        Room initialRoom = new Room("Initial room", Optional.of(northRoom));
         Player player = new Player(initialRoom);
 
         LookCommand lookCommand = new LookCommand(console);
@@ -65,7 +68,6 @@ public class KatacombsOfDoomSpecification {
         inOrder.verify(console).write("See you in hell.");
     }
 
-    @Ignore
     @Test public void
     displays_the_name_of_the_room_on_entrance() {
         given(console.read()).willReturn("Move North", "Suicide");

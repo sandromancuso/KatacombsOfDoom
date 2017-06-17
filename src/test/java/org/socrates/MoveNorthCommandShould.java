@@ -6,6 +6,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.util.Optional;
+
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 
@@ -18,7 +20,7 @@ public class MoveNorthCommandShould {
 
     @Before
     public void initialise() {
-        Room northRoom = new Room("North room");
+        Room northRoom = new Room("North room", Optional.empty());
         given(player.currentRoom()).willReturn(northRoom);
         moveNorthCommand = new MoveNorthCommand(player, console);
     }

@@ -31,7 +31,7 @@ public class PlayerShould {
 
     @Test public void
     move_north_when_room_has_north_exit() {
-        Room northRoom = new Room("North room");
+        Room northRoom = new Room("North room", Optional.empty());
         given(initialRoom.north()).willReturn(Optional.of(northRoom));
 
         player.moveNorth();

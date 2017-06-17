@@ -6,6 +6,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.util.Optional;
+
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 
@@ -21,7 +23,8 @@ public class KatacombsOfDoomShould {
     @Before
     public void initialise() {
         given(console.read()).willReturn("Suicide");
-        room = new Room("Library");
+        Room northRoom = new Room("North room", Optional.empty());
+        room = new Room("Library", Optional.of(northRoom));
         katacombsOfDoom = new KatacombsOfDoom(room, commands, console);
     }
 
