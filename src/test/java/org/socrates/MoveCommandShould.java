@@ -11,6 +11,7 @@ import java.util.Optional;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 import static org.socrates.Direction.NORTH;
+import static org.socrates.Direction.SOUTH;
 
 @RunWith(MockitoJUnitRunner.class)
 public class MoveCommandShould {
@@ -32,6 +33,13 @@ public class MoveCommandShould {
         moveCommand.execute(NORTH);
 
         verify(gameState).move(NORTH);
+    }
+
+    @Test
+    public void move_player_south() {
+        moveCommand.execute(SOUTH);
+
+        verify(gameState).move(SOUTH);
     }
 
     @Test public void

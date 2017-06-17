@@ -1,7 +1,5 @@
 package org.socrates;
 
-import static org.socrates.Direction.NORTH;
-
 class MoveCommand {
     private GameState gameState;
     private Console console;
@@ -12,7 +10,7 @@ class MoveCommand {
     }
 
     void execute(Direction direction) {
-        gameState.move(NORTH);
+        gameState.move(direction);
 
         console.write("You are in " + gameState.currentRoom().name());
     }
