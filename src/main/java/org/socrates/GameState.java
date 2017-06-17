@@ -1,10 +1,10 @@
 package org.socrates;
 
-class Player {
+class GameState {
 
     private Room currentRoom;
 
-    Player(Room initialRoom) {
+    GameState(Room initialRoom) {
         this.currentRoom = initialRoom;
     }
 

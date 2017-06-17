@@ -1,17 +1,17 @@
 package org.socrates;
 
 class MoveNorthCommand {
-    private Player player;
+    private GameState gameState;
     private Console console;
 
-    MoveNorthCommand(Player player, Console console) {
-        this.player = player;
+    MoveNorthCommand(GameState gameState, Console console) {
+        this.gameState = gameState;
         this.console = console;
     }
 
     void execute() {
-        player.moveNorth();
+        gameState.moveNorth();
 
-        console.write("You are in " + player.currentRoom().name());
+        console.write("You are in " + gameState.currentRoom().name());
     }
 }

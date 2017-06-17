@@ -13,7 +13,8 @@ import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
 public class MoveNorthCommandShould {
-    @Mock Player player;
+    @Mock
+    GameState gameState;
     @Mock Console console;
 
     private MoveNorthCommand moveNorthCommand;
@@ -21,15 +22,15 @@ public class MoveNorthCommandShould {
     @Before
     public void initialise() {
         Room northRoom = new Room("North room", Optional.empty());
-        given(player.currentRoom()).willReturn(northRoom);
-        moveNorthCommand = new MoveNorthCommand(player, console);
+        given(gameState.currentRoom()).willReturn(northRoom);
+        moveNorthCommand = new MoveNorthCommand(gameState, console);
     }
 
     @Test
     public void move_player_north() {
         moveNorthCommand.execute();
 
-        verify(player).moveNorth();
+        verify(gameState).moveNorth();
     }
 
     @Test public void
