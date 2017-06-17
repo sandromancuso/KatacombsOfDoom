@@ -28,14 +28,14 @@ public class MoveCommandShould {
 
     @Test
     public void move_player_north() {
-        moveCommand.execute();
+        moveCommand.execute(Direction.NORTH);
 
         verify(gameState).moveNorth();
     }
 
     @Test public void
     display_current_room_after_moving() {
-        moveCommand.execute();
+        moveCommand.execute(Direction.NORTH);
 
         verify(console).write("You are in North room");
     }

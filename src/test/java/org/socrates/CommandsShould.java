@@ -7,13 +7,13 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.mockito.Mockito.verify;
+import static org.socrates.Direction.NORTH;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CommandsShould {
 
     @Mock LookCommand lookCommand;
-    @Mock
-    MoveCommand moveCommand;
+    @Mock MoveCommand moveCommand;
     @Mock SuicideCommand suicideCommand;
 
     private Commands commands;
@@ -34,7 +34,7 @@ public class CommandsShould {
     execute_move_north_command() {
         commands.execute("Move North");
 
-        verify(moveCommand).execute();
+        verify(moveCommand).execute(NORTH);
     }
 
     @Test public void

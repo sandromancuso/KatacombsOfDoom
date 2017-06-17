@@ -9,7 +9,7 @@ class MoveCommand {
         this.console = console;
     }
 
-    void execute() {
+    void execute(Direction north) {
         gameState.moveNorth();
 
         console.write("You are in " + gameState.currentRoom().name());
