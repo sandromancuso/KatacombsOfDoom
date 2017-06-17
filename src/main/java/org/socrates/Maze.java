@@ -4,7 +4,7 @@ import java.util.Optional;
 
 class Maze {
 
-    Optional<Room> roomNorthOf(Room currentRoom) {
+    Optional<Room> roomAdjacentTo(Room currentRoom, Direction north) {
         throw new UnsupportedOperationException();
     }
 

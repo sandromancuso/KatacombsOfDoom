@@ -10,8 +10,8 @@ class GameState {
         this.currentRoom = maze.initialRoom();
     }
 
-    void move(Direction north) {
-        this.currentRoom = maze.roomNorthOf(this.currentRoom).orElse(currentRoom);
+    void move(Direction direction) {
+        this.currentRoom = maze.roomAdjacentTo(this.currentRoom, direction).orElse(currentRoom);
     }
 
     Room currentRoom() {

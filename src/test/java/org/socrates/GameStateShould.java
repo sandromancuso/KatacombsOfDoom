@@ -35,7 +35,7 @@ public class GameStateShould {
 
     @Test public void
     move_north_when_room_has_north_exit() {
-        given(maze.roomNorthOf(initialRoom)).willReturn(Optional.of(northRoom));
+        given(maze.roomAdjacentTo(initialRoom, NORTH)).willReturn(Optional.of(northRoom));
 
         gameState.move(NORTH);
 
@@ -44,7 +44,7 @@ public class GameStateShould {
 
     @Test public void
     not_move_north_when_room_does_not_have_north_exit() {
-        given(maze.roomNorthOf(initialRoom)).willReturn(Optional.empty());
+        given(maze.roomAdjacentTo(initialRoom, NORTH)).willReturn(Optional.empty());
 
         gameState.move(NORTH);
 
