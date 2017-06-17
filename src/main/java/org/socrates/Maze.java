@@ -1,10 +1,14 @@
 package org.socrates;
 
-public class Maze {
-    public Maze() {
+import java.util.Optional;
+
+class Maze {
+
+    Optional<Room> roomNorthOf(Room currentRoom) {
+        throw new UnsupportedOperationException();
     }
 
-    Room roomNorthOf(Room currentRoom) {
-        return currentRoom.north().orElse(currentRoom);
+    Room initialRoom() {
+        throw new UnsupportedOperationException();
     }
 }

@@ -16,12 +16,15 @@ import static org.mockito.BDDMockito.given;
 public class GameStateShould {
 
     @Mock Room initialRoom;
+    @Mock Room northRoom;
+    @Mock Maze maze;
 
     private GameState gameState;
 
     @Before
     public void initialise() {
-        gameState = new GameState(initialRoom, new Maze());
+        given(maze.initialRoom()).willReturn(initialRoom);
+        gameState = new GameState(maze);
     }
 
     @Test public void
@@ -31,8 +34,7 @@ public class GameStateShould {
 
     @Test public void
     move_north_when_room_has_north_exit() {
-        Room northRoom = new Room("North room", Optional.empty());
-        given(initialRoom.north()).willReturn(Optional.of(northRoom));
+        given(maze.roomNorthOf(initialRoom)).willReturn(Optional.of(northRoom));
 
         gameState.moveNorth();
 
@@ -41,7 +43,7 @@ public class GameStateShould {
 
     @Test public void
     not_move_north_when_room_does_not_have_north_exit() {
-        given(initialRoom.north()).willReturn(Optional.empty());
+        given(maze.roomNorthOf(initialRoom)).willReturn(Optional.empty());
 
         gameState.moveNorth();
 
