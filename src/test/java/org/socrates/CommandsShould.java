@@ -1,15 +1,16 @@
 package org.socrates;
 
+import junitparams.JUnitParamsRunner;
+import junitparams.Parameters;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.mockito.Mockito.verify;
-import static org.socrates.Direction.NORTH;
+import static org.mockito.MockitoAnnotations.initMocks;
 
-@RunWith(MockitoJUnitRunner.class)
+@RunWith(JUnitParamsRunner.class)
 public class CommandsShould {
 
     @Mock LookCommand lookCommand;
@@ -20,6 +21,7 @@ public class CommandsShould {
 
     @Before
     public void initialise() {
+        initMocks(this);
         commands = new Commands(lookCommand, moveCommand, suicideCommand);
     }
 
@@ -30,11 +32,18 @@ public class CommandsShould {
         verify(lookCommand).execute();
     }
 
-    @Test public void
-    execute_move_north_command() {
-        commands.execute("Move North");
+    @Test
+    @Parameters({
+            "Move North, NORTH",
+            "Move South, SOUTH",
+            "Move East, EAST",
+            "Move West, WEST"
+    })
+    public void
+    execute_move_north_command(String command , Direction direction) {
+        commands.execute(command);
 
-        verify(moveCommand).execute(NORTH);
+        verify(moveCommand).execute(direction);
     }
 
     @Test public void

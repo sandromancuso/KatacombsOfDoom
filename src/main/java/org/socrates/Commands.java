@@ -1,6 +1,6 @@
 package org.socrates;
 
-import static org.socrates.Direction.NORTH;
+import static org.socrates.Direction.*;
 
 class Commands {
 
@@ -22,6 +22,15 @@ class Commands {
         }
         if ("Move North".equals(command)) {
             moveCommand.execute(NORTH);
+        }
+        if ("Move South".equals(command)) {
+            moveCommand.execute(SOUTH);
+        }
+        if ("Move East".equals(command)) {
+            moveCommand.execute(EAST);
+        }
+        if ("Move West".equals(command)) {
+            moveCommand.execute(WEST);
         }
         if ("Suicide".equals(command)) {
             suicideCommand.execute();
