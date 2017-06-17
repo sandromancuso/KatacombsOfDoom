@@ -19,6 +19,5 @@ class KatacombsOfDoom {
             commands.execute(command);
         }
         commands.execute("Suicide");
-//        console.write("See you in hell.");
     }
 }

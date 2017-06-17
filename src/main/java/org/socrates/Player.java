@@ -1,6 +1,17 @@
 package org.socrates;
 
-public class Player {
-    public void moveNorth() {
+class Player {
+
+    private Room currentRoom;
+
+    Player(Room initialRoom) {
+        this.currentRoom = initialRoom;
+    }
+
+    void moveNorth() {
+    }
+
+    Room currentRoom() {
+         return currentRoom;
     }
 }
