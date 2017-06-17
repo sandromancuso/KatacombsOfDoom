@@ -21,7 +21,7 @@ public class GameStateShould {
 
     @Before
     public void initialise() {
-        gameState = new GameState(initialRoom);
+        gameState = new GameState(initialRoom, new Maze());
     }
 
     @Test public void

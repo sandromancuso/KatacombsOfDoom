@@ -26,7 +26,7 @@ public class KatacombsOfDoomSpecification {
         given(console.read()).willReturn("Suicide");
         Room northRoom = new Room("North room", empty());
         Room initialRoom = new Room("Initial room", Optional.of(northRoom));
-        GameState gameState = new GameState(initialRoom);
+        GameState gameState = new GameState(initialRoom, new Maze());
 
         LookCommand lookCommand = new LookCommand(console);
         SuicideCommand suicideCommand = new SuicideCommand(console);

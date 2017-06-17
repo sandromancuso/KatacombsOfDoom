@@ -2,16 +2,16 @@ package org.socrates;
 
 class GameState {
 
+    private final Maze maze;
     private Room currentRoom;
 
-    GameState(Room initialRoom) {
+    GameState(Room initialRoom, Maze maze) {
         this.currentRoom = initialRoom;
+        this.maze = maze;
     }
 
     void moveNorth() {
-        if (currentRoom.north().isPresent()) {
-            currentRoom = currentRoom.north().get();
-        }
+        this.currentRoom = maze.roomNorthOf(this.currentRoom);
     }
 
     Room currentRoom() {
