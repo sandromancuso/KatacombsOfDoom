@@ -11,6 +11,7 @@ import java.util.Optional;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.BDDMockito.given;
+import static org.socrates.Direction.NORTH;
 
 @RunWith(MockitoJUnitRunner.class)
 public class GameStateShould {
@@ -36,7 +37,7 @@ public class GameStateShould {
     move_north_when_room_has_north_exit() {
         given(maze.roomNorthOf(initialRoom)).willReturn(Optional.of(northRoom));
 
-        gameState.moveNorth();
+        gameState.move(NORTH);
 
         assertThat(gameState.currentRoom(), is(northRoom));
     }
@@ -45,7 +46,7 @@ public class GameStateShould {
     not_move_north_when_room_does_not_have_north_exit() {
         given(maze.roomNorthOf(initialRoom)).willReturn(Optional.empty());
 
-        gameState.moveNorth();
+        gameState.move(NORTH);
 
         assertThat(gameState.currentRoom(), is(initialRoom));
     }

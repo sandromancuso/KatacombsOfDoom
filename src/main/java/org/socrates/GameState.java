@@ -10,7 +10,7 @@ class GameState {
         this.currentRoom = maze.initialRoom();
     }
 
-    void moveNorth() {
+    void move(Direction north) {
         this.currentRoom = maze.roomNorthOf(this.currentRoom).orElse(currentRoom);
     }
 

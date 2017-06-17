@@ -10,6 +10,7 @@ import java.util.Optional;
 
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
+import static org.socrates.Direction.NORTH;
 
 @RunWith(MockitoJUnitRunner.class)
 public class MoveCommandShould {
@@ -28,14 +29,14 @@ public class MoveCommandShould {
 
     @Test
     public void move_player_north() {
-        moveCommand.execute(Direction.NORTH);
+        moveCommand.execute(NORTH);
 
-        verify(gameState).moveNorth();
+        verify(gameState).move(NORTH);
     }
 
     @Test public void
     display_current_room_after_moving() {
-        moveCommand.execute(Direction.NORTH);
+        moveCommand.execute(NORTH);
 
         verify(console).write("You are in North room");
     }
