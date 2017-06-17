@@ -3,12 +3,12 @@ package org.socrates;
 class Commands {
 
     private LookCommand lookCommand;
-    private MoveNorthCommand moveNorthCommand;
+    private MoveCommand moveCommand;
     private SuicideCommand suicideCommand;
 
-    Commands(LookCommand lookCommand, MoveNorthCommand moveNorthCommand, SuicideCommand suicideCommand) {
+    Commands(LookCommand lookCommand, MoveCommand moveCommand, SuicideCommand suicideCommand) {
         this.lookCommand = lookCommand;
-        this.moveNorthCommand = moveNorthCommand;
+        this.moveCommand = moveCommand;
         this.suicideCommand = suicideCommand;
     }
 
@@ -17,7 +17,7 @@ class Commands {
             lookCommand.execute();
         }
         if ("Move North".equals(command)) {
-            moveNorthCommand.execute();
+            moveCommand.execute();
         }
         if ("Suicide".equals(command)) {
             suicideCommand.execute();

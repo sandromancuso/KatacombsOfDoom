@@ -1,10 +1,10 @@
 package org.socrates;
 
-class MoveNorthCommand {
+class MoveCommand {
     private GameState gameState;
     private Console console;
 
-    MoveNorthCommand(GameState gameState, Console console) {
+    MoveCommand(GameState gameState, Console console) {
         this.gameState = gameState;
         this.console = console;
     }

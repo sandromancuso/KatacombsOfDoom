@@ -12,30 +12,30 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
-public class MoveNorthCommandShould {
-    @Mock
-    GameState gameState;
+public class MoveCommandShould {
+
+    @Mock GameState gameState;
     @Mock Console console;
 
-    private MoveNorthCommand moveNorthCommand;
+    private MoveCommand moveCommand;
 
     @Before
     public void initialise() {
         Room northRoom = new Room("North room", Optional.empty());
         given(gameState.currentRoom()).willReturn(northRoom);
-        moveNorthCommand = new MoveNorthCommand(gameState, console);
+        moveCommand = new MoveCommand(gameState, console);
     }
 
     @Test
     public void move_player_north() {
-        moveNorthCommand.execute();
+        moveCommand.execute();
 
         verify(gameState).moveNorth();
     }
 
     @Test public void
     display_current_room_after_moving() {
-        moveNorthCommand.execute();
+        moveCommand.execute();
 
         verify(console).write("You are in North room");
     }

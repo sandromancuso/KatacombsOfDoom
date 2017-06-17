@@ -12,14 +12,15 @@ import static org.mockito.Mockito.verify;
 public class CommandsShould {
 
     @Mock LookCommand lookCommand;
-    @Mock MoveNorthCommand moveNorthCommand;
+    @Mock
+    MoveCommand moveCommand;
     @Mock SuicideCommand suicideCommand;
 
     private Commands commands;
 
     @Before
     public void initialise() {
-        commands = new Commands(lookCommand, moveNorthCommand, suicideCommand);
+        commands = new Commands(lookCommand, moveCommand, suicideCommand);
     }
 
     @Test public void
@@ -33,7 +34,7 @@ public class CommandsShould {
     execute_move_north_command() {
         commands.execute("Move North");
 
-        verify(moveNorthCommand).execute();
+        verify(moveCommand).execute();
     }
 
     @Test public void

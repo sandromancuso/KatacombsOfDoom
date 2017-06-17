@@ -12,9 +12,9 @@ public class KatacombsOfDoomApp {
         Room initialRoom = new Room("Initial room", Optional.of(northRoom));
         LookCommand lookCommand = new LookCommand(console);
         GameState gameState = new GameState(new Maze());
-        MoveNorthCommand moveNorthCommand = new MoveNorthCommand(gameState, console);
+        MoveCommand moveCommand = new MoveCommand(gameState, console);
         SuicideCommand suicideCommand = new SuicideCommand(console);
-        Commands commands = new Commands(lookCommand, moveNorthCommand, suicideCommand);
+        Commands commands = new Commands(lookCommand, moveCommand, suicideCommand);
 
 
         KatacombsOfDoom katacombsOfDoom = new KatacombsOfDoom(initialRoom, commands, console);
