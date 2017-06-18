@@ -13,8 +13,10 @@ class Maze {
         this.rooms = rooms;
     }
 
-    Optional<Position> positionAdjacentTo(Position position, Direction north) {
-        throw new UnsupportedOperationException();
+    Optional<Position> positionAdjacentTo(Position position, Direction direction) {
+        Position nextPosition = position.next(direction);
+
+        return Optional.ofNullable(roomAt(nextPosition)).map(e->nextPosition);
     }
 
     Position initialPosition() {
