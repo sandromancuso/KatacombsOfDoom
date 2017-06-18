@@ -16,8 +16,8 @@ import static org.socrates.Direction.NORTH;
 @RunWith(MockitoJUnitRunner.class)
 public class GameStateShould {
 
-    Room initialRoom = new Room("Current", Optional.empty());
-    Room northRoom = new Room("North", Optional.empty());
+    Room initialRoom = new Room("Current");
+    Room northRoom = new Room("North");
     @Mock Position northPosition;
     @Mock Maze maze;
 

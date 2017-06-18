@@ -6,8 +6,6 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import java.util.Optional;
-
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 import static org.socrates.Direction.NORTH;
@@ -23,7 +21,7 @@ public class MoveCommandShould {
 
     @Before
     public void initialise() {
-        Room northRoom = new Room("North room", Optional.empty());
+        Room northRoom = new Room("North room");
         given(gameState.currentRoom()).willReturn(northRoom);
         moveCommand = new MoveCommand(gameState, console);
     }
