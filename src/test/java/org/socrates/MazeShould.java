@@ -1,8 +1,10 @@
 package org.socrates;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -16,7 +18,9 @@ public class MazeShould {
 
     @Before
     public void initialise() {
-        maze = new Maze(INITIAL_POSITION);
+        Map<Position, Room> rooms = new HashMap<>();
+        rooms.put(INITIAL_POSITION, INITIAL_ROOM);
+        maze = new Maze(INITIAL_POSITION, rooms);
     }
 
     @Test public void
@@ -24,7 +28,6 @@ public class MazeShould {
         assertThat(maze.initialPosition(), is(INITIAL_POSITION));
     }
 
-    @Ignore
     @Test public void
     return_a_room_for_a_position_with_a_room() {
         assertThat(maze.roomAt(INITIAL_POSITION), is(INITIAL_ROOM));

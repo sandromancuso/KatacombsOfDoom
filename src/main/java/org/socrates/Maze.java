@@ -1,13 +1,16 @@
 package org.socrates;
 
+import java.util.Map;
 import java.util.Optional;
 
 class Maze {
 
     private Position initialPosition;
+    private Map<Position, Room> rooms;
 
-    public Maze(Position initialPosition) {
+    public Maze(Position initialPosition, Map<Position, Room> rooms) {
         this.initialPosition = initialPosition;
+        this.rooms = rooms;
     }
 
     Optional<Position> positionAdjacentTo(Position position, Direction north) {
@@ -19,6 +22,6 @@ class Maze {
     }
 
     Room roomAt(Position position) {
-        throw new UnsupportedOperationException();
+        return rooms.get(position);
     }
 }
