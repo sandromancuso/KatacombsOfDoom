@@ -4,11 +4,15 @@ import java.util.Optional;
 
 class Maze {
 
-    Optional<Room> roomAdjacentTo(Room currentRoom, Direction north) {
+    Optional<Position> positionAdjacentTo(Position position, Direction north) {
         throw new UnsupportedOperationException();
     }
 
-    Room initialRoom() {
+    Position initialPosition() {
+        throw new UnsupportedOperationException();
+    }
+
+    public Room roomAt(Position position) {
         throw new UnsupportedOperationException();
     }
 }

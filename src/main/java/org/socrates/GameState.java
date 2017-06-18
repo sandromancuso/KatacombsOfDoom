@@ -3,18 +3,18 @@ package org.socrates;
 class GameState {
 
     private final Maze maze;
-    private Room currentRoom;
+    private Position currentPosition;
 
     GameState(Maze maze) {
         this.maze = maze;
-        this.currentRoom = maze.initialRoom();
+        this.currentPosition = maze.initialPosition();
     }
 
     void move(Direction direction) {
-        this.currentRoom = maze.roomAdjacentTo(this.currentRoom, direction).orElse(currentRoom);
+        this.currentPosition = maze.positionAdjacentTo(this.currentPosition, direction).orElse(currentPosition);
     }
 
     Room currentRoom() {
-         return currentRoom;
+         return maze.roomAt(currentPosition);
     }
 }
