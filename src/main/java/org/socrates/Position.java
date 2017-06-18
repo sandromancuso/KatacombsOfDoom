@@ -2,6 +2,9 @@ package org.socrates;
 
 import static org.apache.commons.lang.builder.EqualsBuilder.reflectionEquals;
 import static org.apache.commons.lang.builder.HashCodeBuilder.reflectionHashCode;
+import static org.socrates.Direction.NORTH;
+import static org.socrates.Direction.SOUTH;
+import static org.socrates.Direction.WEST;
 
 class Position {
     private final int x;
@@ -13,7 +16,13 @@ class Position {
     }
 
     Position next(Direction direction) {
-        return new Position(0, 1);
+        if (direction == NORTH)
+            return new Position(0, y + 1);
+        if (direction == SOUTH)
+            return new Position(0, y - 1);
+        if (direction == WEST)
+            return new Position(x - 1, y);
+        return new Position(x + 1, y);
     }
 
     @Override

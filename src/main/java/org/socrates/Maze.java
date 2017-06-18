@@ -15,8 +15,7 @@ class Maze {
 
     Optional<Position> positionAdjacentTo(Position position, Direction direction) {
         Position nextPosition = position.next(direction);
-
-        return Optional.ofNullable(roomAt(nextPosition)).map(e->nextPosition);
+        return Optional.ofNullable(roomAt(nextPosition)).map(e -> nextPosition);
     }
 
     Position initialPosition() {
